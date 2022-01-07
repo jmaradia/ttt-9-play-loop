@@ -11,6 +11,7 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+
 def move(board, index, current_player = "X")
   board[index] = current_player
 end
@@ -42,4 +43,19 @@ def play(board)
     turn(board)
     counter += 1
   end
+end
+#Current Players 
+
+def turn_count(board)
+  counter = 0
+  board.each do |spaces|
+    if spaces == 'X'|| spaces == '0'
+      counter += 1
+    end
+  end
+  counter
+end
+
+def current_player(board)
+  turn_count(board) % 2 == 0 ? 'X' : '0'
 end
